@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //返回随机数
+    function getRandom(min,max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var i=0;
+    var randomNum = getRandom(1,50);
+
+    while (true){
+        if (i == 10) {
+            alert("非常遗憾您的次数用完咯~");
+            break;
+        }
+        var num = prompt("请输入一个1-50之间的数字,您还有"+(10-i)+"次机会呦");
+        if (num > randomNum){
+            alert("您输入的数字大了哦");
+        }else if(num < randomNum){
+            alert("您输入的数字小了哦");
+        }else {
+            alert("恭喜您猜对啦~");
+            break;
+        }
+        i++;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>获取当前时间</button>
+<div>显示当前时间</div>
+<p>直接显示时间</p>
+<script>
+    //获取元素
+    var butt = document.querySelector('button');
+    var div = document.querySelector('div');
+    var p = document.querySelector('p');
+
+    p.innerText = nowDate();
+
+    butt.onclick = function (){
+        div.innerText = nowDate();
+    }
+
+    //获取当前时间
+    function nowDate() {
+        // 获取当前日期
+        var date = new Date();
+
+        // 获取当前月份
+        var nowMonth = date.getMonth() + 1;
+
+        // 获取当前是几号
+        var strDate = date.getDate();
+
+        var h = date.getHours();
+        var i = date.getMinutes();
+        var s = date.getSeconds();
+
+        // 对月份进行处理，1-9月在前面添加一个“0”
+        if (nowMonth >= 1 && nowMonth <= 9) {
+            nowMonth = "0" + nowMonth;
+        }
+
+        // 对日期进行处理，1-9号在前面添加一个“0”
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+
+        // 最后拼接字符串，得到一个格式为(yyyy-MM-dd)的日期
+        var nowDate = date.getFullYear() + "年" + nowMonth + "月" + strDate + "日" + h + "时" + i + "分" + s + "秒";
+        return nowDate;
+    }
+
+</script>
+</body>
+</html>

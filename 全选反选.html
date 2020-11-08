@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>
+            <input type="checkbox" id = 'allCkx'>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <input type="checkbox">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox">
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    var allCkx =  document.getElementById('allCkx');
+    var tbCkxs = document.querySelector('tbody').getElementsByTagName('input');
+    // console.log(tbCkxs);
+    // console.log(allCkx);
+    //全选
+    allCkx.onclick = function(){
+        for (var i = 0;i <= tbCkxs.length-1;i++){
+            tbCkxs[i].checked = this.checked;
+        }
+    }
+    //反选
+    for (var i = 0;i <= tbCkxs.length-1;i++) {
+        tbCkxs[i].onclick = function(){
+            var flag = true;
+            for (var i = 0;i <= tbCkxs.length-1;i++) {
+                if (!tbCkxs[i].checked){
+                    flag = false;
+                    break;
+                }
+            }
+            allCkx.checked = flag;
+        }
+    }
+</script>
+</body>
+</html>
